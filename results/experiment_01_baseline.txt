@@ -1,0 +1,33 @@
+﻿Experiment 1: Layer-Wise Representation Similarity
+
+Model:
+DistilBERT (distilbert-base-uncased)
+
+Number of layers:
+7 (Layer 0 = initial representation, Layers 1-6 = Transformer layers)
+
+Dataset:
+6 sentences covering Sports, Animals, and AI/Technology.
+
+Method:
+1. Tokenized the sentences using the DistilBERT tokenizer.
+2. Extracted hidden states from every layer.
+3. Averaged token representations to obtain one vector per sentence.
+4. Calculated pairwise cosine similarity between sentence representations.
+5. Calculated the average similarity at each layer.
+
+Results:
+
+Layer 0: 0.65491736
+Layer 1: 0.80456686
+Layer 2: 0.87076825
+Layer 3: 0.88743980
+Layer 4: 0.88305295
+Layer 5: 0.82287460
+Layer 6: 0.68086284
+
+Initial observation:
+Average similarity increased from Layer 0 to Layer 3, reached its highest value at Layer 3, and then decreased toward Layer 6.
+
+Important limitation:
+The overall average similarity does not by itself show whether semantically related sentences become more similar. A category-based within-group versus between-group analysis is required.
