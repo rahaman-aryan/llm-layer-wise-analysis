@@ -1,0 +1,35 @@
+Experiment 5: Lexical-Controlled Layer-Wise Probing
+
+Model:
+DistilBERT (distilbert-base-uncased)
+
+Dataset:
+150 sentences across 5 controlled groups.
+30 sentences per group.
+
+Method:
+1. Reduced obvious category-specific vocabulary.
+2. Extracted hidden states from all 7 DistilBERT layers.
+3. Used attention-mask weighted mean pooling.
+4. Split the dataset into 80% training and 20% test data.
+5. Trained a Logistic Regression classifier separately on each layer.
+6. Evaluated classification accuracy on unseen test data.
+
+Results:
+
+Layer 0: 0.83333333
+Layer 1: 0.83333333
+Layer 2: 0.86666667
+Layer 3: 0.83333333
+Layer 4: 0.90000000
+Layer 5: 0.90000000
+Layer 6: 0.83333333
+
+Observation:
+Classification accuracy was lower than in the previous experiment, where stronger lexical cues were present. Accuracy varied across layers and did not increase monotonically from early to late layers.
+
+Interpretation:
+Reducing obvious category-specific vocabulary made the classification task more difficult, suggesting that lexical cues contributed to the high performance observed in Experiment 4. However, the remaining classification accuracy indicates that information useful for distinguishing the groups is still recoverable from the representations.
+
+Limitation:
+The dataset remains relatively small and manually constructed, and only one train/test split was used. The results should therefore be treated as preliminary.

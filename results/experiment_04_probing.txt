@@ -1,0 +1,34 @@
+Experiment 4: Layer-Wise Probing
+
+Model:
+DistilBERT (distilbert-base-uncased)
+
+Dataset:
+500 sentences across 5 semantic categories.
+100 sentences per category.
+
+Method:
+1. Extracted hidden states from all 7 DistilBERT layers.
+2. Used attention-mask weighted mean pooling.
+3. Split the dataset into 80% training and 20% test data.
+4. Trained a Logistic Regression classifier separately on each layer.
+5. Evaluated classification accuracy on unseen test data.
+
+Results:
+
+Layer 0: 0.92
+Layer 1: 0.90
+Layer 2: 0.93
+Layer 3: 0.92
+Layer 4: 0.93
+Layer 5: 0.93
+Layer 6: 0.93
+
+Observation:
+The classifier achieved high accuracy across all layers, with values ranging from 0.90 to 0.93. No strong monotonic increase in accuracy was observed across the network.
+
+Interpretation:
+The predefined categories were recoverable from representations at both early and late layers. However, high classification accuracy does not necessarily imply that the representations contain abstract semantic information, because lexical and structural cues may still be present in the dataset.
+
+Limitation:
+The dataset was manually constructed and may contain category-specific vocabulary or sentence patterns. A controlled lexical experiment is therefore required before drawing stronger conclusions about semantic information across layers.
