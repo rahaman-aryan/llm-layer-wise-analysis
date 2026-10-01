@@ -1,0 +1,63 @@
+Experiment 3: Layer-Wise Category Separation on a Larger Dataset
+
+Model:
+DistilBERT (distilbert-base-uncased)
+
+Dataset:
+50 sentences across 5 semantic categories.
+10 sentences per category.
+
+Categories:
+Sports, Animals, Technology, Food, Travel
+
+Method:
+1. Tokenized 50 sentences using the DistilBERT tokenizer.
+2. Extracted hidden states from all 7 layers.
+3. Used attention-mask weighted mean pooling.
+4. Calculated pairwise cosine similarity.
+5. Calculated within-category and between-category similarity.
+6. Calculated separation as:
+   Within-category similarity - Between-category similarity.
+
+Results:
+
+Layer 0:
+Within-category similarity: 0.68482465
+Between-category similarity: 0.63235710
+Separation: 0.05246753
+
+Layer 1:
+Within-category similarity: 0.80963340
+Between-category similarity: 0.75155115
+Separation: 0.05808222
+
+Layer 2:
+Within-category similarity: 0.86788370
+Between-category similarity: 0.82926850
+Separation: 0.03861517
+
+Layer 3:
+Within-category similarity: 0.89739950
+Between-category similarity: 0.86480340
+Separation: 0.03259611
+
+Layer 4:
+Within-category similarity: 0.90312520
+Between-category similarity: 0.86843950
+Separation: 0.03468573
+
+Layer 5:
+Within-category similarity: 0.86727077
+Between-category similarity: 0.80756660
+Separation: 0.05970419
+
+Layer 6:
+Within-category similarity: 0.74349725
+Between-category similarity: 0.64099290
+Separation: 0.10250437
+
+Observation:
+Within-category similarity was higher than between-category similarity at every layer. Category separation increased substantially in the later layers, with the largest separation observed at Layer 6.
+
+Limitation:
+The dataset contains only 50 manually constructed sentences across five broad semantic categories. The categories may contain lexical cues that make separation easier. Therefore, these results should be considered preliminary rather than a general conclusion about transformer representations.
