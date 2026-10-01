@@ -1,0 +1,54 @@
+Experiment 6: Stability of Layer-Wise Probing
+
+Model:
+DistilBERT (distilbert-base-uncased)
+
+Dataset:
+500 sentences across 5 semantic categories.
+100 sentences per category.
+
+Method:
+1. Extracted hidden states from all 7 DistilBERT layers.
+2. Used attention-mask weighted mean pooling.
+3. Used 5 different stratified 80/20 train-test splits.
+4. Trained a Logistic Regression classifier separately on each layer.
+5. Calculated mean accuracy and standard deviation across the 5 splits.
+
+Results:
+
+Layer 0:
+Mean accuracy: 0.948
+Standard deviation: 0.02135
+
+Layer 1:
+Mean accuracy: 0.942
+Standard deviation: 0.02713
+
+Layer 2:
+Mean accuracy: 0.946
+Standard deviation: 0.01855
+
+Layer 3:
+Mean accuracy: 0.940
+Standard deviation: 0.02191
+
+Layer 4:
+Mean accuracy: 0.948
+Standard deviation: 0.02040
+
+Layer 5:
+Mean accuracy: 0.944
+Standard deviation: 0.01625
+
+Layer 6:
+Mean accuracy: 0.944
+Standard deviation: 0.01625
+
+Observation:
+Mean classification accuracy remained within a relatively narrow range across all seven layers, from 0.940 to 0.948. The results did not show a monotonic increase in classification accuracy with layer depth.
+
+Interpretation:
+The stability experiment indicates that the layer-wise probing results are not strongly dependent on a single train-test split. Category information remained recoverable across all layers, including the initial representation. This supports the earlier observation that deeper layers do not simply show progressively higher category classification accuracy.
+
+Limitation:
+The dataset is manually constructed and the experiment uses five train-test splits. Therefore, the results should still be considered preliminary and may not generalize to other datasets or tasks.
