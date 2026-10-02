@@ -9,21 +9,7 @@ import numpy as np
 
 
 # Load the existing 500-sentence dataset
-namespace = {}
-exec(
-    open("experiment_04_harder_dataset.py", encoding="utf-8").read(),
-    namespace
-)
-
-sentences = namespace["sentences"]
-
-categories = (
-    ["sports"] * 100 +
-    ["animals"] * 100 +
-    ["technology"] * 100 +
-    ["food"] * 100 +
-    ["travel"] * 100
-)
+from dataset_500 import sentences, categories
 
 print("Number of sentences:", len(sentences))
 print("Number of categories:", len(set(categories)))

@@ -10,16 +10,7 @@ model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
-# Same 500-sentence dataset used in Experiment 4
-exec(open("experiment_04_harder_dataset.py", encoding="utf-8").read())
-
-categories = (
-    ["sports"] * 100 +
-    ["animals"] * 100 +
-    ["technology"] * 100 +
-    ["food"] * 100 +
-    ["travel"] * 100
-)
+from dataset_500 import sentences, categories
 
 inputs = tokenizer(
     sentences,
