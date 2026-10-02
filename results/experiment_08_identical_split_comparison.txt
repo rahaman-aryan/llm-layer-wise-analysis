@@ -1,0 +1,36 @@
+Experiment 8: Identical-Split Comparison
+
+Model comparison:
+1. TF-IDF (unigrams and bigrams) + Logistic Regression
+2. DistilBERT layer-wise representations + Logistic Regression
+
+Dataset:
+500 sentences across 5 semantic categories.
+100 sentences per category.
+
+Method:
+Both models were evaluated using the same five stratified 80/20 train-test splits with random seeds 0-4.
+
+TF-IDF Results:
+Split 1: 0.9800
+Split 2: 0.9800
+Split 3: 0.9500
+Split 4: 0.9400
+Split 5: 0.9700
+Mean accuracy: 0.9640
+Standard deviation: 0.0162
+
+DistilBERT Results:
+Layer 0: Mean accuracy = 0.9580, Standard deviation = 0.0147
+Layer 1: Mean accuracy = 0.9500, Standard deviation = 0.0190
+Layer 2: Mean accuracy = 0.9580, Standard deviation = 0.0160
+Layer 3: Mean accuracy = 0.9560, Standard deviation = 0.0162
+Layer 4: Mean accuracy = 0.9640, Standard deviation = 0.0196
+Layer 5: Mean accuracy = 0.9640, Standard deviation = 0.0206
+Layer 6: Mean accuracy = 0.9620, Standard deviation = 0.0194
+
+Interpretation:
+The identical-split comparison provides a direct comparison between lexical TF-IDF features and DistilBERT representations because both models are evaluated on exactly the same train-test splits.
+
+Limitation:
+The dataset is manually constructed and may contain category-specific lexical or structural cues. Therefore, the comparison should not be interpreted as a general comparison between TF-IDF and DistilBERT.
