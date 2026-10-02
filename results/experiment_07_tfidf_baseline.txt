@@ -1,0 +1,38 @@
+
+Experiment 7: TF-IDF Lexical Baseline
+
+Model:
+TF-IDF (unigrams and bigrams) with Logistic Regression.
+
+Dataset:
+500 sentences across 5 semantic categories.
+100 sentences per category.
+
+Method:
+1. Used the existing 500-sentence dataset.
+2. Split the data into 80% training and 20% test sets.
+3. Used five stratified splits with random seeds 0–4.
+4. Fitted the TF-IDF vectorizer only on each training set.
+5. Trained Logistic Regression on the TF-IDF features.
+6. Evaluated accuracy on each test set.
+7. Calculated mean accuracy and standard deviation.
+
+Results:
+
+Split 1: 0.98
+Split 2: 0.98
+Split 3: 0.95
+Split 4: 0.94
+Split 5: 0.97
+
+Mean accuracy: 0.964
+Standard deviation: 0.01625
+
+Observation:
+The TF-IDF baseline achieved a mean classification accuracy of 96.4% across five stratified train-test splits.
+
+Interpretation:
+The high accuracy indicates that lexical features provide substantial information for distinguishing the predefined categories. The TF-IDF baseline's mean accuracy exceeded the mean probing accuracy observed in Experiment 6.
+
+Limitation:
+The dataset is manually constructed, and the experiment uses five train-test splits. The results do not establish that lexical features explain all information available in DistilBERT representations. A controlled comparison using identical splits is needed.
