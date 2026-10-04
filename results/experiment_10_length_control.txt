@@ -1,0 +1,16 @@
+Experiment 10: Sentence-Length-Controlled Probing
+
+Original sentences: 500
+Matched sentences: 265
+Sentences per category: 53
+Matched length range: 5-9 words
+Matched average length: 6.87 words
+
+Layer-wise Accuracy:
+Layer 0: 0.9434
+Layer 1: 0.9623
+Layer 2: 0.9623
+Layer 3: 0.9623
+Layer 4: 0.9623
+Layer 5: 0.9623
+Layer 6: 0.9623
