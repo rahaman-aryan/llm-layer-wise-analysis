@@ -259,3 +259,11 @@ The project is intended to develop practical experience with:
 * Reproducibility
 * Interpretation of model behavior
 * Research-oriented evaluation
+## Future Work
+
+## Future Work
+
+- [ ] Test representation stability with additional random seeds
+- [ ] Evaluate the analysis on an externally sourced dataset
+- [ ] Compare alternative sentence representation methods
+- [ ] Investigate whether category information changes across model layers
